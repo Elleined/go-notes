@@ -1,6 +1,17 @@
 # go-notes
 Notes for Go
 
+# Naming conventions
+Package names: lowercase all
+File names: lowercase all
+Variables and Constants: 
+  Local: camelCase
+  Exported: PascalCase
+Functions
+  Local: camelCase
+  Exported: PascalCase
+Structs and Interface: PascalCase
+
 # Go (Golang) Roadmap: Basic to Advanced Topics
 
 ---
