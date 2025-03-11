@@ -2,15 +2,120 @@
 Notes for Go
 
 # Naming conventions
-Package names: lowercase all  
-File names: lowercase all  
-Variables and Constants:   
-  Local: camelCase  
-  Exported: PascalCase  
-Functions  
-  Local: camelCase  
-  Exported: PascalCase  
-Structs and Interface: PascalCase  
+- Package names: lowercase all  
+- File names: lowercase all  
+- Variables and Constants:   
+  - Local: camelCase  
+  - Exported: PascalCase  
+- Functions  
+  - Local: camelCase  
+  - Exported: PascalCase  
+- Structs and Interface: PascalCase
+
+# Data types
+- Numeric types
+  - int, int8, int16, int32, int64: Both positive and negative numbers
+  ```go
+  var age int = 18
+  or
+  age := 18
+  ```
+  - unint, uint8, uint16, uint32, uint64: Positive numbers
+  ```go
+  var age uint = 18
+  or
+  age := 18
+  ```
+  - float32, float64: Decimal numbers
+  ```go
+  var age float64  = 18.1
+  or
+  age := 18.1
+  ```
+  - complex64, complex 128: Real or Imaginarytnumbers
+ 
+- Text types
+  - string: String literally with double-qoutes ""
+  ```go
+  var name string = "Juan"
+  or
+  name := "Juan"
+  ```
+  - rune: Character with single-qoutes ``
+  ```go
+  var initial rune = 'J'
+  or
+  initial := 'J'
+  ```
+  - byte: byte
+ 
+- bool: True or false
+  ```go
+  var isPresent bool = true
+  or
+  isPresent := true
+  ```
+- pointer: Stores the memory address of a variable (Will be elaborated more later)
+  
+- Data Structure Types
+  - slice: Dynamic size array just like ArrayList in java
+  ```go
+  names := []string {
+    "Juan",
+    "Pedro"
+  }
+  ```
+  - map: key-value pair
+  ```go
+  persons := map[string] int {
+    "Juan": 25,
+    "Pedro": 20
+  }
+  ```
+  - struct: same concept with java classes
+  ```go
+  type Person struct {
+    Name string
+    Age int
+  }
+
+  person := Person {
+    Name: "Juan",
+    Age: 25
+  }
+  ```
+  - interface: same concept as intefaces in java
+  ```go
+  type Human interface {
+    Walk()
+  }
+  ```
+  
+## Most use datatypes
+- int
+- unint
+- float64
+- string
+- rune
+- bool
+- struct
+
+## When to use specific numerical dataypes
+- Unles you have a good reason. It is recommended to use the default numerical datatype `int` and `uint`
+- When the performance optimization are concerned use the specific numerical datatypes
+
+# Variables
+- Please note that unused variable are not allowed in go it will cause an compilation error.
+- Long hand syntax
+```go
+var name string = "Juan";
+```
+
+- Short hand syntax
+In short hand syntax the type is inferred automatically. With the use of `:=`. Which means it automatically detects the datatype based on given value, In this example it will be inferred as string
+```
+name := "Juan"
+```
 
 # Go (Golang) Roadmap: Basic to Advanced Topics
 
