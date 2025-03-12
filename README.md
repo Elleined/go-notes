@@ -129,6 +129,26 @@ In short hand syntax the type is inferred automatically. With the use of `:=`. W
 name := "Juan"
 ```
 
+# Format Specifiers
+| Specifier  | Description                        | Example Output                        |
+|------------|------------------------------------|--------------------------------------|
+| `%v`       | Default format (any value)         | `42`, `true`, `{Alice 30}`           |
+| `%+v`      | Struct with field names            | `{Name:Alice Age:30}`                |
+| `%#v`      | Go syntax representation           | `main.Person{Name:"Alice", Age:30}`  |
+| `%T`       | Type of the value                  | `int`, `string`, `main.Person`       |
+| `%d`       | Integer (base 10)                  | `123`                                |
+| `%b`       | Binary representation              | `1111011`                            |
+| `%o`       | Octal representation               | `173`                                |
+| `%x` / `%X`| Hexadecimal (lowercase / uppercase)| `7b` / `7B`                          |
+| `%f`       | Floating point (decimal)           | `3.141593`                           |
+| `%e` / `%E`| Scientific notation                | `3.141593e+00` / `3.141593E+00`      |
+| `%s`       | String                             | `Hello`                              |
+| `%q`       | Double-quoted string               | `"Hello"`                            |
+| `%p`       | Pointer address                    | `0xc000012080`                       |
+| `%c`       | Character (ASCII value)            | `'A'` (for `65`)                     |
+| `%t`       | Boolean                            | `true`, `false`                      |
+
+
 # Go (Golang) Roadmap: Basic to Advanced Topics
 
 ---
