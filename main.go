@@ -45,7 +45,8 @@ func longHandAndShortHandVariableDeclaration() {
 }
 
 func numericDataType() {
-
+	var age int8 = 18
+	fmt.Println(age)
 }
 
 func textDataType() {

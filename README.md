@@ -14,19 +14,31 @@ Notes for Go
 
 # Data types
 - Numeric types
-  - int, int8, int16, int32, int64: Both positive and negative numbers
+  Both positive and negative numbers
+  - int: default
+  - int8: -128 to 127
+  - int16: -32,768 to 32,767
+  - int32: -2,147,483,648 to 2,147,483,647
+  - int64: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
   ```go
   var age int = 18
   or
   age := 18
   ```
-  - unint, uint8, uint16, uint32, uint64: Positive numbers
+  Positive numbers
+  - unint: default
+  - uint8: 0 to 255
+  - uint16: 0 to 65,535
+  - uint32: 0 to 4,294,967,295
+  - uint64: 0 to 18,446,744,073,709,551,615
   ```go
   var age uint = 18
   or
   age := 18
   ```
-  - float32, float64: Decimal numbers
+  Decimal numbers
+  - float32: Approx. 6-7 decimal digits
+  - float64: Approx. 15 decimal digits
   ```go
   var age float64  = 18.1
   or
