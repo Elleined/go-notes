@@ -130,9 +130,12 @@ name := "Juan"
 ```
 
 # Constants
-constant as the name itself it cannot be changed. Also worth noting that constant should be defined at compile time. So constant can be only creatred or derived from other constants.
+- constant as the name itself it cannot be changed
+- Also worth noting that constant should be defined at compile time
+- So constant can be only created or derived from other constants.
+- Its good to declare constant in all caps.
 ```go
-const name string = "Red"
+const NAME string = "Red"
 ```
 
 # Format Specifiers
