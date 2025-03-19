@@ -129,6 +129,12 @@ In short hand syntax the type is inferred automatically. With the use of `:=`. W
 name := "Juan"
 ```
 
+# Constants
+constant as the name itself it cannot be changed. Also worth noting that constant should be defined at compile time. So constant can be only creatred or derived from other constants.
+```go
+const name string = "Red"
+```
+
 # Format Specifiers
 | Specifier  | Description                        | Example Output                        |
 |------------|------------------------------------|--------------------------------------|
