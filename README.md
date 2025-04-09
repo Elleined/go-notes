@@ -104,12 +104,12 @@ Notes for Go
   ```
   
 ## Most use datatypes
-- int
+- int (defaults 0)
 - unint
-- float64
-- string
-- rune
-- bool
+- float64 (defaults 0.0)
+- string (defaults "")
+- rune (defaults '')
+- bool (defaults false)
 - struct
 
 ## When to use specific numerical dataypes
