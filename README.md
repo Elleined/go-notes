@@ -171,6 +171,34 @@ if score := 10; score > 10 {
 ```
 Here the statement is only scoped within the if statement and cannot be access outside. This is useful for the variable that are only used once for if statement one liner.
 
+# Function
+- Function Signature
+```go
+func name(parameters...) (returns...) {
+
+}
+
+// Without any parameters and returns
+func foo() {
+
+}
+
+// With parameters and returns
+// Multiple data type declaration
+func foo(bar, foo int) (int, int) {
+    return bar, foo
+}
+```
+
+## Named Returns
+Is basically a return with a name and this was used for more code readability and named return is initialize with default value for primitives and nil with objects.
+```
+func bar(param1, param2 int) (ret1, ret2 int) (
+    
+    return ret1, ret2
+}
+```
+
 # Go (Golang) Roadmap: Basic to Advanced Topics
 
 ---
