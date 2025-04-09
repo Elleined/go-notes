@@ -169,7 +169,7 @@ if score := 10; score > 10 {
    fmt.Printf("Score is greater than %d", score)
 }
 ```
-Here the statement is only scoped within the if statement and cannot be access outside. This is useful for the variable that are only used once for if statement one liner.
+- Here the statement is only scoped within the if statement and cannot be access outside. This is useful for the variable that are only used once for if statement one liner.
 
 # Function
 - Function Signature
@@ -191,7 +191,7 @@ func foo(bar, foo int) (int, int) {
 ```
 
 ## Named Returns
-Is basically a return with a name and this was used for more code readability and named return is initialize with default value for primitives and nil with objects.
+- Is basically a return with a name and this was used for more code readability and named return is initialize with default value for primitives and nil with objects.
 ```
 func bar(param1, param2 int) (ret1, ret2 int) (
     
@@ -208,7 +208,7 @@ func update(person Person, updateRequest PersonUpdateRequest) (person Person) {
 return person
 }
 ```
-Here the parameter is named person and the return also named person they will conflict right? It doesnt add clarity to the function. Instead just used a regular return for this approach.
+- Here the parameter is named person and the return also named person they will conflict right? It doesnt add clarity to the function. Instead just used a regular return for this approach.
 ```go
 func update(person Person, updateRequest PersonUpdateRequest) Person {
    return person
@@ -217,16 +217,15 @@ func update(person Person, updateRequest PersonUpdateRequest) Person {
 This is much more readable.
 
 #### Conclusion
-Used named return when it adds clarity to your method signature unless dont just use them everywhere. Best wsy to use named return is.
+- Used named return when it adds clarity to your method signature unless dont just use them everywhere. Best wsy to use named return is.
 ```go
 func fullName(firstName, lastName string) (name string) {
    return name
 }
 ```
-Here it adds clarity that the return of fullName function returns name right?.
+- Here it adds clarity that the return of fullName function returns name right?.
 
 # Pointer
-For the code
 ```go
 /*
 1. x holds the value of 10.
@@ -251,11 +250,32 @@ ptr := &x
 *ptr
 // outputs 10
 ```
-* is basically saying that get the value of that memory address. Basically saying that "What is the value of memory address that ptr pointer pointing to".
+`*` is basically saying that get the value of that memory address. Basically saying that "What is the value of memory address that ptr pointer pointing to".
 
-And when you see `*variable` think of it just like interacting to the real object itself.
+`*` And when you see `*variable` think of it just like interacting to the real object itself.
   
-& is saying that get the memory address of the variable. Basically saying that saying that "Where is the x"
+`&` is saying that get the memory address of the variable. Basically saying that saying that "Where is the x"
+
+Another example: 
+```go
+func main() {
+  x := 10
+  fmt.Println("Before modifying: ", x)
+  // Pass the memory address of x
+  modify(&x)
+  fmt.Println("After modifying: ", x)
+}
+
+func modify(num *int) {
+    *num = 15
+}
+
+/*
+outputs
+10
+15
+*/
+```
 
 # Go (Golang) Roadmap: Basic to Advanced Topics
 ---
