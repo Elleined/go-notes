@@ -219,11 +219,11 @@ This is much more readable.
 #### Conclusion
 Used named return when it adds clarity to your method signature unless dont just use them everywhere. Best wsy to use named return is.
 ```go
-func calculateSize(length, width int (size int) {
-   return size
+func fullName(firstName, lastName string) (name string) {
+   return name
 }
 ```
-Here it adds clarity that the return of calculateSize function is the size right?.
+Here it adds clarity that the return of fullName function returns name right?.
 
 
 # Go (Golang) Roadmap: Basic to Advanced Topics
