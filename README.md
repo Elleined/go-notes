@@ -251,7 +251,9 @@ ptr := &x
 *ptr
 // outputs 10
 ```
-* is basically saying that get the value of that memory address. Basically saying that "What is the value of ptr pointer pointing to".
+* is basically saying that get the value of that memory address. Basically saying that "What is the value of memory address that ptr pointer pointing to".
+
+And when you see `*variable` think of it just like interacting to the real object itself.
   
 & is saying that get the memory address of the variable. Basically saying that saying that "Where is the x"
 
