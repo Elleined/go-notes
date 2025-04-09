@@ -225,6 +225,16 @@ func fullName(firstName, lastName string) (name string) {
 ```
 Here it adds clarity that the return of fullName function returns name right?.
 
+# Pointer
+For the code
+```go
+x := 10
+
+ptr := &x
+```
+* is basically saying that get the value of that memory address. Basically saying that "What is the value of ptr pointer pointing to".
+  
+& is saying that get the memory address of the variable. Basically saying that saying that "Where is the x"
 
 # Go (Golang) Roadmap: Basic to Advanced Topics
 
