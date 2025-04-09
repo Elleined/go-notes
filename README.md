@@ -199,6 +199,33 @@ func bar(param1, param2 int) (ret1, ret2 int) (
 }
 ```
 
+#### When to use named returns
+- Used them unless they add clarity for the function signature.
+For example: you have a function that updates a person and return that person what you will do is.
+```go
+func update(person Person, updateRequest PersonUpdateRequest) (person Person) {
+
+return person
+}
+```
+Here the parameter is named person and the return also named person they will conflict right? It doesnt add clarity to the function. Instead just used a regular return for this approach.
+```go
+func update(person Person, updateRequest PersonUpdateRequest) Person {
+   return person
+}
+```
+This is much more readable.
+
+#### Conclusion
+Used named return when it adds clarity to your method signature unless dont just use them everywhere. Best wsy to use named return is.
+```go
+func calculateSize(length, width int (size int) {
+   return size
+}
+```
+Here it adds clarity that the return of calculateSize function is the size right?.
+
+
 # Go (Golang) Roadmap: Basic to Advanced Topics
 
 ---
