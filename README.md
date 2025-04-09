@@ -158,6 +158,19 @@ const NAME string = "Red"
 | `%t`       | Boolean                            | `true`, `false`                      |
 
 
+# IF with short statement
+```go
+Syntax:
+if statement; expression {
+   // body
+}
+
+if score := 10; score > 10 {
+   fmt.Printf("Score is greater than %d", score)
+}
+```
+Here the statement is only scoped within the if statement and cannot be access outside. This is useful for the variable that are only used once for if statement one liner.
+
 # Go (Golang) Roadmap: Basic to Advanced Topics
 
 ---
