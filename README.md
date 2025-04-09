@@ -228,16 +228,33 @@ Here it adds clarity that the return of fullName function returns name right?.
 # Pointer
 For the code
 ```go
+// x holds the value of 10
+// and has the memory address of 10101
 x := 10
 
+// ptr holds the memory address of x // which is 10101.
 ptr := &x
+
+// &x just like saying get the memory // address of x which is 10101
+&x  = 10101
+
+// Literally get the value of ptr
+// which is 10101
+ptr = 10101
+
+// Don't need to explain why this is 10
+x    = 10
+
+// So basically saying get the value of ptr pointer pointing to
+// In this example ptr hold the value of memory address of x right? 10101
+// And 10101 is the memory address of x that has value of 10 thata why is outputs 10
+*ptr = 10
 ```
 * is basically saying that get the value of that memory address. Basically saying that "What is the value of ptr pointer pointing to".
   
 & is saying that get the memory address of the variable. Basically saying that saying that "Where is the x"
 
 # Go (Golang) Roadmap: Basic to Advanced Topics
-
 ---
 
 ## **1. Introduction to Go**
