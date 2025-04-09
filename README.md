@@ -228,27 +228,28 @@ Here it adds clarity that the return of fullName function returns name right?.
 # Pointer
 For the code
 ```go
-// x holds the value of 10
-// and has the memory address of 10101
+/*
+1. x holds the value of 10.
+2. And has the memory address of 10101.
+*/
 x := 10
+// outputs 10
 
-// ptr holds the memory address of x // which is 10101.
+/*
+1. ptr holds the memory address of x (10101)
+2. &x just like saying get the memory address of x (10101)
+*/
 ptr := &x
+// outputs 10101
 
-// &x just like saying get the memory // address of x which is 10101
-&x  = 10101
-
-// Literally get the value of ptr
-// which is 10101
-ptr = 10101
-
-// Don't need to explain why this is 10
-x    = 10
-
-// So basically saying get the value of ptr pointer pointing to
-// In this example ptr hold the value of memory address of x right? 10101
-// And 10101 is the memory address of x that has value of 10 thata why is outputs 10
-*ptr = 10
+/*
+1. *ptr just like saying get the value of memory address that ptr pointer pointing to.
+2. And ptr pointer points to memory address of (10101)
+3. And memory address of (10101) is x and has a value of 10.
+4. Which outputs to 10.
+*/
+*ptr
+// outputs 10
 ```
 * is basically saying that get the value of that memory address. Basically saying that "What is the value of ptr pointer pointing to".
   
