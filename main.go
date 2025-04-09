@@ -169,6 +169,12 @@ func decisionMaking() {
 	} else {
 		fmt.Println("\t Executed because age is more than 25")
 	}
+
+	fmt.Println("\t === IF WITH SHORT STATEMENT ===")
+	// Here score is only available within the if statement scope and cannot be access outside the if statement.
+	if score := 10; score > 10 {
+		fmt.Printf("\t Score is greater than %d", score)
+	}
 }
 
 func controlFlow() {
