@@ -219,10 +219,10 @@ func (u *User) Name() {
 type User struct {
   id   int
   name string
+}
 
-  func (u *User) Name() {
+func (u *User) Name() {
       return name
-  }
 }
 
 func main() {
