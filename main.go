@@ -184,14 +184,27 @@ func controlFlow() {
 	}
 	fmt.Println()
 
-	fmt.Println("\n \t === FOR EACH ===")
+	fmt.Println("\n \t === FOR RANGE ===")
 	numbers := []int{
 		1,
 		2,
 		3,
 	}
-	for _, number := range numbers {
-		fmt.Print(number)
+	for index, number := range numbers {
+		fmt.Printf("Index: %d Number: %d", index, number)
 	}
 	fmt.Println()
+
+	fmt.Println("\n \t === WHILE LOOP ===")
+	counter := 10
+	for counter > 0 {
+		fmt.Printf("Counter: %d", counter)
+		counter--
+	}
+	fmt.Println()
+
+	fmt.Println("\n \t === INFINITE LOOP ===")
+	for {
+		fmt.Println("I'm stuck here! HELP")
+	}
 }
