@@ -102,6 +102,11 @@ Notes for Go
     Walk()
   }
   ```
+  - channel: used for go routines communication.
+      - chan T: can send and receive data of type T
+      - chan <- T: Can only send data of type T
+      - <- chan T: Can only receive data of type T
+  ```
   
 ## Most use datatypes
 - int (defaults 0)
