@@ -110,7 +110,7 @@ Notes for Go
 - string (defaults "")
 - rune (defaults '')
 - bool (defaults false)
-- struct
+- struct, map, slice, and interface (defaults nil)
 
 ## When to use specific numerical dataypes
 - Unles you have a good reason. It is recommended to use the default numerical datatype `int` and `uint`
