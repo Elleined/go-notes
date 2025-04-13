@@ -2,8 +2,8 @@
 Notes for Go
 
 # Naming conventions
-- Package names: lowercase all  
-- File names: lowercase all  
+- Package names: lowercase and single word
+- File names: lowercase all
 - Variables and Constants:   
   - Local: camelCase  
   - Exported: PascalCase  
