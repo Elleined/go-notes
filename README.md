@@ -235,8 +235,8 @@ x := 10
 // outputs 10
 
 /*
-1. ptr holds the memory address of x (10101)
-2. &x just like saying get the memory address of x (10101)
+1. &x just like saying get the memory address of x (10101)
+2. ptr holds the memory address of x (10101)
 */
 ptr := &x
 // outputs 10101
@@ -276,6 +276,16 @@ outputs
 15
 */
 ```
+
+Another example:
+Check the swap.go it covers the referencing and dereferencing of a pointer.
+
+## Benefits of using pointers
+- Avoids copying of large data sets and only passing its pointer so that any modification happens inside a function it will also affect the original copy. Instead of passing its value in function it means that you just created 2 whole same large dataset and when youre done inside the function you return the modified copy and reassign that to original variable so much work here.
+- Basically you just passing the address (which is just a random alphanumeric values) instead of a full copy.
+
+## Best use case of pointer
+- When working with maps, struct, slices, channels, and array. Because its avoids passing the whole large data sets inside a function instead only working wiith its memory address and modify it accordingly and efficiently.
 
 # Go (Golang) Roadmap: Basic to Advanced Topics
 ---
