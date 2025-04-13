@@ -177,7 +177,7 @@ if score := 10; score > 10 {
 - Here the statement is only scoped within the if statement and cannot be access outside. This is useful for the variable that are only used once for if statement one liner.
 
 # Function
-- Function Signature
+## Function Signature
 ```go
 func name(parameters...) (returns...) {
 
@@ -204,31 +204,40 @@ func bar(param1, param2 int) (ret1, ret2 int) (
 }
 ```
 
-#### When to use named returns
-- Used them unless they add clarity for the function signature.
-For example: you have a function that updates a person and return that person what you will do is.
+## Receiver function
+- Usually used inside struct to mimic other programming languange methods inside classes, since go doesn't have class go receiver function is the go work around for the struct to have a method inside.
+- Basically saying here's a function `Name() {}` attached this to `func (u *User)` with final result of.
 ```go
-func update(person Person, updateRequest PersonUpdateRequest) (person Person) {
+func (u *User) Name() {
 
-return person
 }
 ```
-- Here the parameter is named person and the return also named person they will conflict right? It doesnt add clarity to the function. Instead just used a regular return for this approach.
-```go
-func update(person Person, updateRequest PersonUpdateRequest) Person {
-   return person
-}
-```
-This is much more readable.
+- So now its like this user has now this method. also can also be denoted as this user has received this method thats why its called receiver function.
 
-#### Conclusion
-- Used named return when it adds clarity to your method signature unless dont just use them everywhere. Best wsy to use named return is.
+### Example of receiver function
 ```go
-func fullName(firstName, lastName string) (name string) {
-   return name
+type User struct {
+  id   int
+  name string
+
+  func (u *User) Name() {
+      return name
+  }
+}
+
+func main() {
+   user := Person { 1, "foo" }
+
+   // To use the receiver function is:
+   user.Name() 
 }
 ```
-- Here it adds clarity that the return of fullName function returns name right?.
+(u *User): is the method receiver. and just like saying `this`.
+
+Name(): is the method.
+
+### Conclusion for receiver function
+- Used to mimic method inside class in other programming languange.
 
 # Pointer
 ```go
