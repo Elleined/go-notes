@@ -239,6 +239,43 @@ Name(): is the method.
 ### Conclusion for receiver function
 - Used to mimic method inside class in other programming languange.
 
+## Anonymous function
+a function without a name, often assignes as variable or called immediately. Just like in js.
+```go
+greet := func(name string) {
+    fmt.Println("Hello", name)
+}
+greet("Alice")
+```
+
+## Closures function
+a returned function that takes variable to its outer scope
+```go
+func counter() func() int {
+    count := 0
+    return func() int {
+        count++
+        return count
+    }
+}
+
+c := counter()
+fmt.Println(c()) // 1
+fmt.Println(c()) // 2
+```
+## Higher order function
+a function that takes a function as parameter or return them
+usecase is just like stream api methodd in java. map, filter, and etc...
+```go
+func operate(a, b int, op func(int, int) int) int {
+    return op(a, b)
+}
+
+add := func(x, y int) int { return x + y } // Anonymous function
+result := operate(3, 4, add)
+```
+
+
 # Pointer
 ```go
 /*
