@@ -429,6 +429,43 @@ After having a panic
 1. Don't use panic and recover all over the place. use panic for unrecoverable error else use the error and return a error in recoverable situation
 2. Use panic and recover by pair is a good practice
 
+# Go database connectivity methods
+## sql package method
+1. Open(): returns sql.DB, and used to open a database connection
+// username:password@tcp(host:port)/database
+sql.Open("mysql", "root:root@tcp(localhost:3306)/myDB")
+
+## sql.DB methods
+1. Ping(): checks the database connection
+2. Close(): close database connection `defer db.Close()`
+3. Exec(): returns sql.Result, and commonly used for INSERT, UPDATE, and DELETE
+4. Query(): returns sql.Rows, and commonly used for SELECT
+
+## sql.Rows methods
+1. Next(): moves the cursor to the next row.
+2. Scan(): copies the values of the current row into the provided variables (usually pointers). and commonly used after the .Next() method inside a while loop
+3. Close(): close the rows connection `defer rows.Close()`
+
+## sql.Result methods
+1. LastInsertedId() (int, error): Usually used after an INSERT
+2. RowsAffected() (int, error): Usually used after an UPDATE and DELETE
+
+# Connect to MySQL Server
+1. Install MySQL Driver
+go get -u github.com/go-sql-driver/mysql
+
+2. Import Packages
+import (
+    "database/sql"
+    _ "github.com/go-sql-driver/mysql"
+    "fmt"
+    "log"
+)
+
+# Other matters
+## Placeholder symbols
+`?` symbol is used for MySQL
+`$1` system is used for PostgreSQL
 
 # Go (Golang) Roadmap: Basic to Advanced Topics
 ---
