@@ -117,6 +117,7 @@ Notes for Go
 - rune (defaults '')
 - bool (defaults false)
 - struct, map, slice, and interface (defaults nil)
+- map, slice, and channel should declared with make() function
 
 ## When to use specific numerical dataypes
 - Unles you have a good reason. It is recommended to use the default numerical datatype `int` and `uint`
