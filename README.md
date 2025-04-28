@@ -340,6 +340,96 @@ Check the swap.go it covers the referencing and dereferencing of a pointer.
 ## Best use case of pointer
 - When working with maps, struct, slices, channels, and array. Because its avoids passing the whole large data sets inside a function instead only working wiith its memory address and modify it accordingly and efficiently.
 
+# Defer, Panic, and Recover
+# defer keyword
+1. For code cleanup.
+2. Executed after the function call.
+3. Acts as final block in try catch in any other language.
+4. defer is executed in LIFO manner, meaning the last deferred funtion is executed first. Like a down to up
+5. And when the defer keyword is executed it will be computed right there.
+6. Direct replacement for try catch and only as finally block in the essense
+Example:
+```go
+defer fmt.Println("This will be printed third")
+defer fmt.Println("This will be printed second")
+
+fmt.Println("This will be printed first")
+
+// output
+This will be printed first
+This will be printed second
+This will be printed third
+```
+
+# panic keyword
+1. When panic is executed the rest of the code will not be executed and all the deferred keyword met along the way will be executed.
+2. Only use for fatals error where the program cannot be recoverable.
+
+## difference of error and panic
+1. panic is like error in java where program cannot be recoverable after an error.
+2. error is like exception in java where program are recoverable after an error
+Example:
+```go
+defer fmt.Println("This will be executed even theres a panic")
+
+fmt.Println("A panic is about to happen")
+panic("Somethin went wrong")
+
+// output
+
+A panic is about to happen
+This will be executed even theres a panic
+panic: Something went wrong
+```
+
+# recover keyword
+- Must be inside a defer function to use.
+- So basicallly recover is used to execute the code even after a panic occurs
+- The return value of recover() will the value the passed on the panic(x any) function
+- Also used for monitoring, logging, and debugging.
+- When theres no recover() after a panic() the program will be terminated
+Example:
+```go
+func recoverSample() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Recover from panic: %v", r)
+		}
+	}()
+
+	fmt.Println("Starting the function...")
+
+	panic("Something went wrong!")
+	
+	fmt.Println("This will never be executed!")
+}
+
+func main() {
+	fmt.Println("Before having a panic")
+	recoverSample()
+	fmt.Println("After having a panic")
+}
+
+// output
+Before having a panic
+Starting the function
+Recover from panic: Something went wrong
+After having a panic
+```
+
+# exit keyword
+1. Exits the program immediately. Thus ignoring all the defer, panic, and recover keyword.
+
+# init keyword
+1. No parameter and return values
+2. Executed before the main function
+3. Only be used once per package
+
+## Conclusion
+1. Don't use panic and recover all over the place. use panic for unrecoverable error else use the error and return a error in recoverable situation
+2. Use panic and recover by pair is a good practice
+
+
 # Go (Golang) Roadmap: Basic to Advanced Topics
 ---
 
