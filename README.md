@@ -13,6 +13,7 @@ Notes for Go
 - Structs and Interface: PascalCase
 
 # Data types
+- Any type: denote with `any` and `interface{}`
 - Numeric types
   Both positive and negative numbers
   - int: default
