@@ -11,10 +11,12 @@ func main() {
 func deferPanicRecover() {
 	defer func() {
 		if r := recover(); r != nil {
-			fmt.Printf("Recovered from panic: %v", r)
+			fmt.Printf("Recovered from panic: %v \n", r)
 		}
 	}()
 
 	fmt.Println("This will be printed first")
 	panic("Something went wrong!")
+
+	fmt.Println("This will never be printed")
 }
