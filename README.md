@@ -344,7 +344,7 @@ Check the swap.go it covers the referencing and dereferencing of a pointer.
 # defer keyword
 1. For code cleanup.
 2. Executed after the function call.
-3. Acts as final block in try catch in any other language.
+3. Acts as final block in try catch in any other language. Meaning its like saying "no matter happens in this function, make sure to run this code". 
 4. defer is executed in LIFO manner, meaning the last deferred funtion is executed first. Like a down to up
 5. And when the defer keyword is executed it will be computed right there.
 6. Direct replacement for try catch and only as finally block in the essense
@@ -364,10 +364,12 @@ This will be printed third
 # panic keyword
 1. When panic is executed the rest of the code will not be executed and all the deferred keyword met along the way will be executed.
 2. Only use for fatals error where the program cannot be recoverable.
-
+3. It's like saying "something has gone so wrong here that normal execution cannot continue safely."
+   
 ## difference of error and panic
 1. panic is like error in java where program cannot be recoverable after an error.
-2. error is like exception in java where program are recoverable after an error
+2. error is like exception in java where program are recoverable after an error.
+
 Example:
 ```go
 defer fmt.Println("This will be executed even theres a panic")
@@ -388,6 +390,7 @@ panic: Something went wrong
 - The return value of recover() will the value the passed on the panic(x any) function
 - Also used for monitoring, logging, and debugging.
 - When theres no recover() after a panic() the program will be terminated
+- Acts as safety net after encountering a panic
 Example:
 ```go
 func recoverSample() {
@@ -417,6 +420,11 @@ Recover from panic: Something went wrong
 After having a panic
 ```
 
+## Conclusion about defer, panic, and recover
+1. defer is for code cleanup and logging
+2. panic is for signaling unrecoverable error or the program is invalid state and should be terminated.
+3. recover is for handling a panic to gracefully handle and prevent system crashes and also used for logging.
+
 # exit keyword
 1. Exits the program immediately. Thus ignoring all the defer, panic, and recover keyword.
 
@@ -424,6 +432,19 @@ After having a panic
 1. No parameter and return values
 2. Executed before the main function
 3. Only be used once per package
+```go
+func init() {
+	fmt.Println("Initializing this package")
+}
+
+func main() {
+	fmt.Println("From main funtion")
+}
+
+// outputs
+Initializing this package
+From main function
+```
 
 ## Conclusion
 1. Don't use panic and recover all over the place. use panic for unrecoverable error else use the error and return a error in recoverable situation
