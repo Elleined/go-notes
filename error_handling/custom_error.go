@@ -5,12 +5,6 @@ import (
 	"time"
 )
 
-// This error.go contains the ff:
-// 1. errors.New
-// 2. errors.Is
-// 3. errors.As
-// 4. errors.Join
-
 type MyCustomError struct {
 	Message    string
 	StatusCode int
