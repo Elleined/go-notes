@@ -432,6 +432,19 @@ After having a panic
 1. No parameter and return values
 2. Executed before the main function
 3. Only be used once per package
+```go
+func init() {
+	fmt.Println("Initializing this package")
+}
+
+func main() {
+	fmt.Println("From main funtion")
+}
+
+// outputs
+Initializing this package
+From main function
+```
 
 ## Conclusion
 1. Don't use panic and recover all over the place. use panic for unrecoverable error else use the error and return a error in recoverable situation
