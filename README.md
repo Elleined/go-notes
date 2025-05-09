@@ -4,64 +4,64 @@ Notes for Go
 # Naming conventions
 - Package names: lowercase and single word
 - File names: lowercase all
-- Variables and Constants:   
-  - Local: camelCase  
-  - Exported: PascalCase  
-- Functions  
-  - Local: camelCase  
-  - Exported: PascalCase  
+- Variables and Constants:
+    - Local: camelCase
+    - Exported: PascalCase
+- Functions
+    - Local: camelCase
+    - Exported: PascalCase
 - Structs and Interface: PascalCase
 
 # Data types
 - Any type: denote with `any` and `interface{}`
 - Numeric types
   Both positive and negative numbers
-  - int: default
-  - int8: -128 to 127
-  - int16: -32,768 to 32,767
-  - int32: -2,147,483,648 to 2,147,483,647
-  - int64: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+    - int: default
+    - int8: -128 to 127
+    - int16: -32,768 to 32,767
+    - int32: -2,147,483,648 to 2,147,483,647
+    - int64: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
   ```go
   var age int = 18
   or
   age := 18
   ```
   Positive numbers
-  - unint: default
-  - uint8: 0 to 255
-  - uint16: 0 to 65,535
-  - uint32: 0 to 4,294,967,295
-  - uint64: 0 to 18,446,744,073,709,551,615
+    - unint: default
+    - uint8: 0 to 255
+    - uint16: 0 to 65,535
+    - uint32: 0 to 4,294,967,295
+    - uint64: 0 to 18,446,744,073,709,551,615
   ```go
   var age uint = 18
   or
   age := 18
   ```
   Decimal numbers
-  - float32: Approx. 6-7 decimal digits
-  - float64: Approx. 15 decimal digits
+    - float32: Approx. 6-7 decimal digits
+    - float64: Approx. 15 decimal digits
   ```go
   var age float64  = 18.1
   or
   age := 18.1
   ```
-  - complex64, complex 128: Real or Imaginarytnumbers
- 
+    - complex64, complex 128: Real or Imaginarytnumbers
+
 - Text types
-  - string: String literally with double-qoutes ""
+    - string: String literally with double-qoutes ""
   ```go
   var name string = "Juan"
   or
   name := "Juan"
   ```
-  - rune: Character with single-qoutes ``
+    - rune: Character with single-qoutes ``
   ```go
   var initial rune = 'J'
   or
   initial := 'J'
   ```
-  - byte: byte
- 
+    - byte: byte
+
 - bool: True or false
   ```go
   var isPresent bool = true
@@ -69,23 +69,23 @@ Notes for Go
   isPresent := true
   ```
 - pointer: Stores the memory address of a variable (Will be elaborated more later)
-  
+
 - Data Structure Types
-  - slice: Dynamic size array just like ArrayList in java
+    - slice: Dynamic size array just like ArrayList in java
   ```go
   names := []string {
     "Juan",
     "Pedro"
   }
   ```
-  - map: key-value pair
+    - map: key-value pair
   ```go
   persons := map[string] int {
     "Juan": 25,
     "Pedro": 20
   }
   ```
-  - struct: same concept with java classes
+    - struct: same concept with java classes
   ```go
   type Person struct {
     Name string
@@ -97,18 +97,18 @@ Notes for Go
     Age: 25
   }
   ```
-  - interface: same concept as intefaces in java
+    - interface: same concept as intefaces in java
   ```go
   type Human interface {
     Walk()
   }
   ```
-  - channel: used for go routines communication.
-      - chan T: can send and receive data of type T
-      - chan <- T: Can only send data of type T
-      - <- chan T: Can only receive data of type T
+    - channel: used for go routines communication.
+        - chan T: can send and receive data of type T
+        - chan <- T: Can only send data of type T
+        - <- chan T: Can only receive data of type T
   ```
-  
+
 ## Most use datatypes
 - int (defaults 0)
 - unint
@@ -131,7 +131,7 @@ var name string = "Juan";
 ```
 
 - Short hand syntax
-In short hand syntax the type is inferred automatically. With the use of `:=`. Which means it automatically detects the datatype based on given value, In this example it will be inferred as string
+  In short hand syntax the type is inferred automatically. With the use of `:=`. Which means it automatically detects the datatype based on given value, In this example it will be inferred as string
 ```
 name := "Juan"
 ```
@@ -306,10 +306,10 @@ ptr := &x
 `*` is basically saying that get the value of that memory address. Basically saying that "What is the value of memory address that ptr pointer pointing to".
 
 `*` And when you see `*variable` think of it just like interacting to the real object itself.
-  
+
 `&` is saying that get the memory address of the variable. Basically saying that saying that "Where is the x"
 
-Another example: 
+Another example:
 ```go
 func main() {
   x := 10
@@ -344,11 +344,11 @@ Check the swap.go it covers the referencing and dereferencing of a pointer.
 # defer keyword
 1. For code cleanup.
 2. Executed after the function call.
-3. Acts as final block in try catch in any other language. Meaning its like saying "no matter happens in this function, make sure to run this code". 
+3. Acts as final block in try catch in any other language. Meaning its like saying "no matter happens in this function, make sure to run this code".
 4. defer is executed in LIFO manner, meaning the last deferred funtion is executed first. Like a down to up
 5. And when the defer keyword is executed it will be computed right there.
 6. Direct replacement for try catch and only as finally block in the essense
-Example:
+   Example:
 ```go
 defer fmt.Println("This will be printed third")
 defer fmt.Println("This will be printed second")
@@ -365,7 +365,7 @@ This will be printed third
 1. When panic is executed the rest of the code will not be executed and all the deferred keyword met along the way will be executed.
 2. Only use for fatals error where the program cannot be recoverable.
 3. It's like saying "something has gone so wrong here that normal execution cannot continue safely."
-   
+
 ## difference of error and panic
 1. panic is like error in java where program cannot be recoverable after an error.
 2. error is like exception in java where program are recoverable after an error.
@@ -391,7 +391,7 @@ panic: Something went wrong
 - Also used for monitoring, logging, and debugging.
 - When theres no recover() after a panic() the program will be terminated
 - Acts as safety net after encountering a panic
-Example:
+  Example:
 ```go
 func recoverSample() {
 	defer func() {
@@ -453,8 +453,8 @@ From main function
 # Go database connectivity methods
 ## sql package method
 1. Open(): returns sql.DB, and used to open a database connection
-// username:password@tcp(host:port)/database
-sql.Open("mysql", "root:root@tcp(localhost:3306)/myDB")
+   // username:password@tcp(host:port)/database
+   sql.Open("mysql", "root:root@tcp(localhost:3306)/myDB")
 
 ## sql.DB methods
 1. Ping(): checks the database connection
@@ -471,189 +471,49 @@ sql.Open("mysql", "root:root@tcp(localhost:3306)/myDB")
 1. LastInsertedId() (int, error): Usually used after an INSERT
 2. RowsAffected() (int, error): Usually used after an UPDATE and DELETE
 
-# Connect to MySQL Server
-1. Install MySQL Driver
-go get -u github.com/go-sql-driver/mysql
+# What is goroutines
+1. Is a lightweight thread managed by Go runtime
+2. Enables execution of functions allowing you to perform multiple tasks in a single go program.
+3. Goroutines are just functions that leave the main thread and run in the background and come back to join the main thread once the functions are finished/ready to return any value
+4. Goroutines are non blocking
+5. Goroutines runs asynchronously basically their execution are not defines as expected it depends whoever goroutine finished first the will be executed.
 
-2. Import Packages
-import (
-    "database/sql"
-    _ "github.com/go-sql-driver/mysql"
-    "fmt"
-    "log"
-)
+## goroutine syntax
+- created with `go` keyword
+```go
+go myFunction(arguments...)
+```
 
-# Other matters
-## Placeholder symbols
-`?` symbol is used for MySQL
-`$1` system is used for PostgreSQL
+## Important note!
+1. When main thread is terminated the goroutines will be terminated immediately. Use channels instead.
 
-# Go (Golang) Roadmap: Basic to Advanced Topics
----
+## FAQS about Goroutine
+1. Goroutine cannot have return value, you must use a channel to receive and send data through goroutines safely.
+2. You can use anonymous function for goroutines
 
-## **1. Introduction to Go**
-- Why Go?  
-- Installing Go & Setting up the Environment  
-- Your First Go Program (`Hello, World!`)  
-- Go Toolchain (`go run`, `go build`, `go fmt`, `go mod`)  
-- Basics of Go Modules  
+## Goroutine common pitfalls
+1. Exiting the main thread before the goroutines finishes. In sample use the time.Sleep(). Basically give time for the go routines to finish before the main thread.
+2. Multiple goroutines accessing the same variable. Use channel, sync.Mutex, or sync/atomic
+3. Using variables outside of scope. The fix is pass the variable as parameter in goroutine function instead always.
 
----
+# What is channel
+1.
 
-## **2. Go Basics**
-- Data Types (`int`, `float`, `string`, `bool`, etc.)  
-- Variables & Constants (`var`, `:=`, `const`)  
-- Functions (Definition, Parameters, Return Values, Multiple Returns)  
-- Control Structures (`if`, `for`, `switch`, `select`)  
-- Pointers (Declaration, Dereferencing, Passing by Reference)  
+## When to close the channel
+1. Only close the sending channel not a receiving channel
 
----
+## Why use channels
+1. Prevents race conditions
+2. Avoid shared memory locks
+3. Enforce message-passing concurrently in a safer manner.
 
-## **3. Collections**
-- Arrays  
-- Slices (Creation, Manipulation, Append, Copy)  
-- Maps (Creation, Accessing, Updating, Deleting)  
-- Structs (Definition, Nested Structs, Methods)  
+# Conclusion about goroutines and channels
+1. Goroutines run tasks concurrently and channel are used for the goroutines to synchonize and communicate.
+2. Goroutines don't return any values and channel provide a way to pass values safely.
+3. Can run in thousand asynchonously and channel helps coordinate the goroutines interactions
 
----
+# Analogy of goroutines and channel working together
+- Its like goroutine is the worker and the walkie-talkie are their channel. They cannot shout to each other. They will use the walkie-talkie(channel) to communicate and coordinate effectively while working independently and concurrently.
 
-## **4. Functions and Methods**
-- Function Types & First-Class Functions  
-- Closures & Anonymous Functions  
-- Methods & Receiver Functions (Value vs. Pointer Receivers)  
-- Interfaces (Definition, Implementation, Type Assertions, Type Switches)  
-
----
-
-## **5. Error Handling**
-- Error Interface  
-- Creating Custom Errors  
-- Handling Errors (Returning Errors, Wrapping Errors, `errors.Is()`, `errors.As()`)  
-- Panic & Recover (When to Use, Best Practices)  
-
----
-
-## **6. Concurrency (Go's Highlight Feature)**
-- Goroutines (Creating, Synchronization)  
-- Channels (Creating, Sending, Receiving, Buffered Channels, `select` Statements)  
-- WaitGroups & Mutexes (Sync Package)  
-- Context Package (Cancellation, Timeouts, Deadlines)  
-- Worker Pools & Patterns for Concurrency  
-
----
-
-## **7. File Handling & I/O**
-- Reading & Writing Files  
-- Handling Directories  
-- Working with JSON (Encoding/Decoding)  
-- Working with CSV, XML  
-- Working with HTTP (Basic Networking)  
-
----
-
-## **8. Packages and Modules**
-- Creating & Using Custom Packages  
-- Structuring Projects  
-- Dependency Management (`go mod`)  
-- Publishing Modules  
-
----
-
-## **9. Testing**
-- Writing Unit Tests (`testing` Package)  
-- Benchmarking  
-- Table-Driven Tests  
-- Mocking & Dependency Injection  
-- Test Coverage Analysis  
-
----
-
-## **10. Standard Library Deep Dive**
-- `net/http` (Building Web Servers)  
-- `io`, `os`, `fmt`, `strings`, `strconv`, `math`, `time`  
-- Logging (`log` package, Custom Logging)  
-- Working with `context` package  
-- Templates (`html/template`, `text/template`)  
-
----
-
-## **11. Advanced Concurrency**
-- Race Conditions & Detection (`go run -race`)  
-- Using `sync` and `sync/atomic` Packages  
-- Channels as Streams & Pipelines  
-- Concurrency Patterns (Fan-In, Fan-Out, Worker Pool)  
-
----
-
-## **12. Reflection and Generics (Go 1.18+)**
-- Using `reflect` Package (Type Introspection, Dynamic Calls)  
-- Introduction to Generics (Type Parameters)  
-- Implementing Generic Functions & Types  
-
----
-
-## **13. Building APIs**
-- REST API with `net/http`  
-- Middleware Implementation  
-- Dependency Injection in Go  
-- Error Handling in APIs (Custom Error Responses)  
-- Graceful Shutdown of HTTP Servers  
-
----
-
-## **14. Security**
-- Secure Coding Practices  
-- Data Validation & Sanitization  
-- Authentication & Authorization (JWT, OAuth2)  
-- TLS & HTTPS Configuration  
-- Preventing Common Vulnerabilities (Injection, Race Conditions, etc.)  
-
----
-
-## **15. Working with Databases**
-- SQL Databases (`database/sql`, `gorm`, `sqlx`)  
-- NoSQL Databases (Redis, MongoDB)  
-- Migrations & ORMs  
-- Connection Pooling & Optimization  
-
----
-
-## **16. CLI Applications**
-- Building CLI Tools  
-- Argument Parsing (`flag` Package, `cobra`, `urfave/cli`)  
-- Error Handling & User Feedback  
-
----
-
-## **17. Performance Optimization**
-- Profiling (`pprof`, `trace`)  
-- Memory Management & Optimization  
-- Efficient Use of Goroutines  
-- Optimizing I/O & Networking  
-
----
-
-## **18. Deployment & Maintenance**
-- Compiling for Multiple Platforms  
-- Dockerizing Go Applications  
-- CI/CD for Go Applications  
-- Monitoring & Logging in Production  
-- Versioning & Release Management  
-
----
-
-## **19. Advanced Topics**
-- Plugins (Dynamically Loading Code)  
-- Embedding Files (Using `embed` package)  
-- Working with WebAssembly (Wasm)  
-- Using `cgo` for C Interoperability  
-- Distributed Systems with Go (gRPC, Protobuf)  
-
----
-
-## **20. Best Practices & Design Patterns**
-- Idiomatic Go (`Effective Go`)  
-- SOLID Principles in Go  
-- Design Patterns (`Singleton`, `Factory`, `Observer`, etc.)  
-- Microservices Architecture  
-- Code Organization & Project Structure  
+# WaitGroup
+1. Is just use to block the main thread for our goroutines to fiinsh executing before closing the main thread
